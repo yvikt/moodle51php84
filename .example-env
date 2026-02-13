@@ -1,0 +1,14 @@
+COMPOSE_PROJECT_NAME=moodle51php84
+
+# db
+DB_HOST=db
+DB_TYPE=mariadb
+DB_USER=moodle
+DB_NAME=moodle
+DB_PASSWORD=abcd1234
+DB_ROOT_PASSWORD=root
+WWW_ROOT='https://example.com'
+DATA_ROOT='/var/www/moodledata'
+
+# nginx
+NGINX_EXPOSED_PORT=127.0.0.1:8899

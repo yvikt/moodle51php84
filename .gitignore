@@ -1,0 +1,11 @@
+/.env
+/.idea
+.DS_Store
+**/.DS_Store
+
+/data/*
+/moodle/*
+/moodledata/*
+
+/temp
+/notes.txt
