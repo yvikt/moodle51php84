@@ -27,7 +27,7 @@ services:
       - ./moodledata:/var/www/moodledata
       - ./docker/php/php.ini:/usr/local/etc/php/conf.d/99-custom.ini:ro
 #      - ./docker/php/fpm-extra.conf:/usr/local/etc/php-fpm.d/zz-fpm-extra.conf:ro
-      - ./data/docker/php/bash_history:/root/.bash_history
+      - ./data/docker/php/root:/root
     environment:
       DB_HOST: ${DB_HOST}
       DB_TYPE: ${DB_TYPE}

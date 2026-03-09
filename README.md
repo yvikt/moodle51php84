@@ -17,7 +17,7 @@ The environment satisfies moodle 5.1 requirements
 - clone this repository
 - create env file: `cp .example-env .env
 `
-- create dirs and files: `mkdir -p data/db && mkdir data/db/root && mkdir data/db_dumps && mkdir -p data/docker/php && touch data/docker/php/bash_history
+- create dirs and files: `mkdir -p data/db && mkdir data/db/root && mkdir data/db_dumps && mkdir -p data/docker/php/root
 `
 - build Docker images: `docker compose build php`
 - `docker compose up -d` (check `docker compose up` first)
