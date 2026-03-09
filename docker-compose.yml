@@ -19,6 +19,9 @@ services:
     restart: unless-stopped
     depends_on:
       - db
+    networks:
+      - default      # default network prefixed by COMPOSE_PROJECT_NAME=moodle51php84
+      - mail-bridge  # external network - interact with mail server running in separate env
     volumes:
       - ./moodle:/var/www/moodle
       - ./moodledata:/var/www/moodledata
@@ -46,6 +49,7 @@ services:
       MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
     volumes:
       - ./data/db:/var/lib/mysql
+      - ./data/db/root:/root
       - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf:ro
 
   redis:
@@ -54,3 +58,8 @@ services:
     command: redis-server --appendonly yes
     volumes:
       - ./data/redis:/data
+
+#  docker network create mail-bridge
+networks:
+  mail-bridge:
+    external: true

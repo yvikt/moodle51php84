@@ -17,7 +17,7 @@ The environment satisfies moodle 5.1 requirements
 - clone this repository
 - create env file: `cp .example-env .env
 `
-- create dirs and files: `mkdir -p data/db && mkdir data/db_dumps && mkdir -p data/docker/php && touch data/docker/php/bash_history
+- create dirs and files: `mkdir -p data/db && mkdir data/db/root && mkdir data/db_dumps && mkdir -p data/docker/php && touch data/docker/php/bash_history
 `
 - build Docker images: `docker compose build php`
 - `docker compose up -d` (check `docker compose up` first)
@@ -65,4 +65,12 @@ cd /home/vic/Projects/MOODLE/Foxford/docker_envs/foxford72rc && docker compose e
 crontab -e
 # cron expression
 */10 * * * * cd /home/vic/Projects/MOODLE/Foxford/docker_envs/foxford72rc && docker compose exec -T php php /var/www/moodle/admin/cli/cron.php >> /var/log/moodle_cron.log 2>&1
+```
+
+### Step 6 - mail server configuration
+
+In case we are running our own Mail server in separate docker compose env 
+we should connect it via external network
+```shell
+docker network create mail-bridge
 ```
